@@ -1,0 +1,13 @@
+h1 {
+    color: rgb(107, 102, 102);
+}
+p {
+    color: rgb(5, 132, 54);
+
+    font-size:50px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.syamei {
+    background-color: #198b04;
+}

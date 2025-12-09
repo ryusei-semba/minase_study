@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スープ徹底比較 | なぜわかめスープがおすすめなのか | minase®︎</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+JP:wght@400;700;900&family=Caveat:wght@700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --ocean-deep: #0a4d68;
+            --ocean-medium: #088395;
+            --ocean-light: #05bfdb;
+            --seafoam: #00ffca;
+            --wakame-green: #2d5a3c;
+            --wakame-light: #4a7c59;
+            --cream: #fff8e8;
+            --sand: #ffd89b;
+            --coral: #ff6b9d;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: linear-gradient(180deg, 
+                var(--ocean-deep) 0%, 
+                var(--ocean-medium) 30%, 
+                var(--ocean-light) 60%,
+                var(--seafoam) 100%);
+            min-height: 100vh;
+            color: #fff;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* 波のアニメーション背景 */
+        .waves {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background-repeat: repeat-x;
+            animation: wave-animation 15s linear infinite;
+        }
+        
+        .wave1 {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C300,100 600,20 900,60 C1200,100 1500,20 1800,60 L1800,120 L0,120 Z' fill='%23ffffff' opacity='0.1'/%3E%3C/svg%3E");
+            animation-duration: 20s;
+            bottom: 0;
+        }
+        
+        .wave2 {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,80 C400,40 800,100 1200,80 C1600,60 2000,100 2400,80 L2400,120 L0,120 Z' fill='%23ffffff' opacity='0.15'/%3E%3C/svg%3E");
+            animation-duration: 25s;
+            animation-delay: -5s;
+            bottom: 10px;
+        }
+        
+        .wave3 {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,50 C350,90 700,10 1050,50 C1400,90 1750,10 2100,50 L2100,120 L0,120 Z' fill='%23ffffff' opacity='0.2'/%3E%3C/svg%3E");
+            animation-duration: 30s;
+            animation-delay: -2s;
+            bottom: 20px;
+        }
+        
+        @keyframes wave-animation {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* 浮遊するわかめ */
+        .floating-wakame {
+            position: fixed;
+            font-size: 2rem;
+            animation: float 15s ease-in-out infinite;
+            opacity: 0.3;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .wakame1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .wakame2 { top: 30%; right: 10%; animation-delay: 3s; }
+        .wakame3 { top: 60%; left: 15%; animation-delay: 6s; }
+        .wakame4 { top: 80%; right: 20%; animation-delay: 9s; }
+        .wakame5 { top: 45%; right: 5%; animation-delay: 12s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(10deg); }
+            50% { transform: translateY(-15px) rotate(-5deg); }
+            75% { transform: translateY(-25px) rotate(8deg); }
+        }
+        
+        /* メインコンテナ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* ヘッダー */
+        header {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            margin-bottom: 3rem;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .company-name {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            color: var(--sand);
+            text-shadow: 3px 3px 0 var(--coral);
+            margin-bottom: 1rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--seafoam), var(--cream), var(--coral));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+            animation: slideInLeft 1s ease-out 0.3s both;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .date {
+            font-size: 1.2rem;
+            color: var(--cream);
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* ニュースバナー */
+        .news-banner {
+            background: linear-gradient(135deg, var(--coral), #ff8fab, var(--coral));
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            border: 4px dashed var(--cream);
+            position: relative;
+            overflow: hidden;
+            animation: scaleIn 0.8s ease-out 0.9s both;
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .news-banner::before {
+            content: '🌊';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.1;
+            top: -2rem;
+            right: -2rem;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .news-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--ocean-deep);
+            text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
+        }
+        
+        .news-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--ocean-deep);
+            font-weight: 700;
+        }
+        
+        /* 画像セクション */
+        .image-section {
+            text-align: center;
+            margin: 4rem 0;
+            animation: zoomIn 1s ease-out 1.2s both;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .soup-image-container {
+            display: inline-block;
+            position: relative;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            border: 5px solid var(--seafoam);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4),
+                        0 0 0 10px rgba(255, 255, 255, 0.1),
+                        0 0 0 20px rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .soup-image-container:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+        
+        .soup-image {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            filter: brightness(1.1) contrast(1.1);
+        }
+        
+        /* コンテンツカード */
+        .content-card {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--ocean-deep);
+            padding: 3rem;
+            border-radius: 30px;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: slideInRight 1s ease-out 1.5s both;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                var(--coral), 
+                var(--seafoam), 
+                var(--ocean-light), 
+                var(--coral));
+            background-size: 200% 100%;
+            animation: gradient-shift 3s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .content-card p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            margin-bottom: 1rem;
+            color: var(--wakame-green);
+        }
+        
+        .content-card p strong {
+            color: var(--coral);
+            font-weight: 900;
+        }
+        
+        .content-card h3:first-of-type + p::first-letter {
+            font-size: 3.5rem;
+            font-weight: 900;
+            float: left;
+            line-height: 1;
+            margin-right: 0.5rem;
+            color: var(--coral);
+        }
+        
+        /* スコアセクション */
+        .score-section {
+            background: linear-gradient(135deg, var(--wakame-green), var(--wakame-light));
+            padding: 3rem;
+            border-radius: 30px;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+            animation: flipIn 1s ease-out 1.8s both;
+        }
+        
+        @keyframes flipIn {
+            from {
+                opacity: 0;
+                transform: perspective(400px) rotateX(-90deg);
+            }
+            to {
+                opacity: 1;
+                transform: perspective(400px) rotateX(0deg);
+            }
+        }
+        
+        .score-section::after {
+            content: '⭐⭐⭐';
+            position: absolute;
+            font-size: 8rem;
+            opacity: 0.1;
+            bottom: -2rem;
+            right: -2rem;
+        }
+        
+        .score-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            font-weight: 900;
+        }
+        
+        .score-display {
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            font-weight: 900;
+            color: var(--sand);
+            text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.3);
+            line-height: 1;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .score-label {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cream);
+        }
+        
+        .star-rating {
+            font-size: 3rem;
+            margin-top: 1rem;
+            letter-spacing: 0.2rem;
+        }
+        
+        /* フッター */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            margin-top: 3rem;
+            animation: fadeIn 1s ease-out 2.1s both;
+        }
+        
+        footer p {
+            font-size: 1.5rem;
+            color: var(--cream);
+            font-weight: 700;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .company-name {
+                font-size: 1.8rem;
+            }
+            
+            .soup-image {
+                max-width: 250px;
+            }
+            
+            .content-card {
+                padding: 2rem;
+            }
+            
+            .content-card p {
+                font-size: 1rem;
+            }
+            
+            .content-card h3 {
+                font-size: 1.5rem !important;
+            }
+            
+            .content-card h4 {
+                font-size: 1.2rem !important;
+            }
+            
+            .content-card table {
+                font-size: 0.85rem;
+            }
+            
+            .content-card th,
+            .content-card td {
+                padding: 0.5rem !important;
+            }
+            
+            .score-display {
+                font-size: 5rem;
+            }
+            
+            .news-banner::before {
+                font-size: 5rem;
+            }
+            
+            .news-title {
+                font-size: 1.5rem;
+            }
+            
+            .news-content {
+                font-size: 1rem;
+            }
+            
+            header p {
+                font-size: 1.2rem !important;
+            }
+        }
+        
+        /* ホバーエフェクト */
+        .wakame-emoji {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        
+        .wakame-emoji:hover {
+            transform: scale(1.5) rotate(20deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- 浮遊するわかめ -->
+    <div class="floating-wakame wakame1">🌊</div>
+    <div class="floating-wakame wakame2">🥬</div>
+    <div class="floating-wakame wakame3">🌊</div>
+    <div class="floating-wakame wakame4">🥬</div>
+    <div class="floating-wakame wakame5">🌊</div>
+    
+    <!-- 波のアニメーション -->
+    <div class="waves">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="company-name">minasekabusikigaisya®︎</div>
+            <h1 class="main-title">スープ徹底比較</h1>
+            <p style="font-size: 1.5rem; color: var(--cream); margin-top: 1rem; font-weight: 700;">
+                なぜわかめスープがおすすめなのか？
+            </p>
+            <div class="date">2025.12.07</div>
+        </header>
+        
+        <div class="news-banner">
+            <h2 class="news-title">📊 調査データ 📊</h2>
+            <div class="news-content">
+                <strong>調査結果1:</strong> 朝食スープ利用者の68%が「手軽さ」を重視<br>
+                <strong>調査結果2:</strong> わかめスープは調理時間わずか3分で完成<br>
+                <strong>調査結果3:</strong> 低カロリーで健康志向の方に人気急上昇中
+            </div>
+        </div>
+        
+        <div class="image-section">
+            <div class="soup-image-container">
+                <img src="img/soup_wakame.png" alt="わかめスープ" class="soup-image">
+            </div>
+        </div>
+        
+        <div class="content-card">
+            <h3 style="font-size: 2rem; color: var(--coral); margin-bottom: 1.5rem; font-weight: 900;">
+                主要スープ4種の比較分析
+            </h3>
+            
+            <div style="overflow-x: auto; margin-bottom: 2rem;">
+                <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+                    <thead>
+                        <tr style="background: var(--ocean-light); color: white;">
+                            <th style="padding: 1rem; text-align: left; font-weight: 900;">項目</th>
+                            <th style="padding: 1rem; text-align: center; font-weight: 900;">わかめスープ</th>
+                            <th style="padding: 1rem; text-align: center; font-weight: 900;">味噌汁</th>
+                            <th style="padding: 1rem; text-align: center; font-weight: 900;">コンソメスープ</th>
+                            <th style="padding: 1rem; text-align: center; font-weight: 900;">中華スープ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(0, 191, 219, 0.1);">
+                            <td style="padding: 1rem; font-weight: 700;">カロリー(1杯)</td>
+                            <td style="padding: 1rem; text-align: center; font-weight: 900; color: var(--coral);">約15kcal ⭐</td>
+                            <td style="padding: 1rem; text-align: center;">約35kcal</td>
+                            <td style="padding: 1rem; text-align: center;">約40kcal</td>
+                            <td style="padding: 1rem; text-align: center;">約50kcal</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; font-weight: 700;">調理時間</td>
+                            <td style="padding: 1rem; text-align: center; font-weight: 900; color: var(--coral);">約3分 ⭐</td>
+                            <td style="padding: 1rem; text-align: center;">約5分</td>
+                            <td style="padding: 1rem; text-align: center;">約3分</td>
+                            <td style="padding: 1rem; text-align: center;">約7分</td>
+                        </tr>
+                        <tr style="background: rgba(0, 191, 219, 0.1);">
+                            <td style="padding: 1rem; font-weight: 700;">栄養素</td>
+                            <td style="padding: 1rem; text-align: center; font-weight: 900; color: var(--coral);">食物繊維、ミネラル豊富 ⭐</td>
+                            <td style="padding: 1rem; text-align: center;">タンパク質、発酵成分</td>
+                            <td style="padding: 1rem; text-align: center;">タンパク質</td>
+                            <td style="padding: 1rem; text-align: center;">タンパク質、脂質</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem; font-weight: 700;">コスト(1杯)</td>
+                            <td style="padding: 1rem; text-align: center; font-weight: 900; color: var(--coral);">約20円 ⭐</td>
+                            <td style="padding: 1rem; text-align: center;">約30円</td>
+                            <td style="padding: 1rem; text-align: center;">約25円</td>
+                            <td style="padding: 1rem; text-align: center;">約35円</td>
+                        </tr>
+                        <tr style="background: rgba(0, 191, 219, 0.1);">
+                            <td style="padding: 1rem; font-weight: 700;">塩分</td>
+                            <td style="padding: 1rem; text-align: center; font-weight: 900; color: var(--coral);">約1.0g ⭐</td>
+                            <td style="padding: 1rem; text-align: center;">約1.5g</td>
+                            <td style="padding: 1rem; text-align: center;">約1.2g</td>
+                            <td style="padding: 1rem; text-align: center;">約1.8g</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3 style="font-size: 2rem; color: var(--coral); margin-bottom: 1.5rem; margin-top: 2rem; font-weight: 900;">
+                わかめスープが選ばれる5つの理由
+            </h3>
+            
+            <div style="display: grid; gap: 1.5rem;">
+                <div style="background: linear-gradient(135deg, rgba(0, 191, 219, 0.1), rgba(0, 255, 202, 0.1)); padding: 1.5rem; border-radius: 15px; border-left: 5px solid var(--coral);">
+                    <h4 style="font-size: 1.5rem; color: var(--ocean-deep); margin-bottom: 0.5rem; font-weight: 900;">1. 圧倒的な低カロリー</h4>
+                    <p style="margin: 0;">1杯わずか15kcal。ダイエット中でも罪悪感なく楽しめます。他のスープと比較して最大70%もカロリーオフ。</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(0, 191, 219, 0.1), rgba(0, 255, 202, 0.1)); padding: 1.5rem; border-radius: 15px; border-left: 5px solid var(--coral);">
+                    <h4 style="font-size: 1.5rem; color: var(--ocean-deep); margin-bottom: 0.5rem; font-weight: 900;">2. 豊富な食物繊維とミネラル</h4>
+                    <p style="margin: 0;">わかめに含まれる水溶性食物繊維が腸内環境を整え、ヨウ素やカルシウムなどのミネラルも豊富。美容と健康をサポート。</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(0, 191, 219, 0.1), rgba(0, 255, 202, 0.1)); padding: 1.5rem; border-radius: 15px; border-left: 5px solid var(--coral);">
+                    <h4 style="font-size: 1.5rem; color: var(--ocean-deep); margin-bottom: 0.5rem; font-weight: 900;">3. 3分で完成する手軽さ</h4>
+                    <p style="margin: 0;">忙しい朝でも大丈夫。お湯を注ぐだけで本格的なスープが完成。時短調理で毎日続けやすい。</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(0, 191, 219, 0.1), rgba(0, 255, 202, 0.1)); padding: 1.5rem; border-radius: 15px; border-left: 5px solid var(--coral);">
+                    <h4 style="font-size: 1.5rem; color: var(--ocean-deep); margin-bottom: 0.5rem; font-weight: 900;">4. 経済的でコスパ最強</h4>
+                    <p style="margin: 0;">1杯約20円という驚きの低コスト。毎日飲んでも月600円程度。家計に優しく続けられます。</p>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(0, 191, 219, 0.1), rgba(0, 255, 202, 0.1)); padding: 1.5rem; border-radius: 15px; border-left: 5px solid var(--coral);">
+                    <h4 style="font-size: 1.5rem; color: var(--ocean-deep); margin-bottom: 0.5rem; font-weight: 900;">5. 減塩でも美味しい</h4>
+                    <p style="margin: 0;">塩分控えめでも、わかめの旨味と出汁の風味でしっかり満足感。高血圧が気になる方にも安心。</p>
+                </div>
+            </div>
+            
+            <h3 style="font-size: 2rem; color: var(--coral); margin-bottom: 1.5rem; margin-top: 2rem; font-weight: 900;">
+                こんな人におすすめ
+            </h3>
+            
+            <p><strong>✓ ダイエット中の方</strong> - 低カロリーで満足感が得られます</p>
+            <p><strong>✓ 忙しいビジネスパーソン</strong> - 3分で栄養補給が完了</p>
+            <p><strong>✓ 健康志向の方</strong> - 食物繊維とミネラルが豊富</p>
+            <p><strong>✓ 節約したい方</strong> - 1杯20円の経済性</p>
+            <p><strong>✓ 高齢者の方</strong> - 低塩分で優しい味わい</p>
+        </div>
+        
+        <div class="score-section">
+            <div class="score-title">総合評価（5項目平均）</div>
+            <div class="score-display">9.2<span style="font-size: 4rem;">/10</span></div>
+            <div class="score-label">点</div>
+            <div class="star-rating">⭐⭐⭐⭐⭐</div>
+            <div style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; text-align: left;">
+                <div style="background: rgba(255, 255, 255, 0.2); padding: 1rem; border-radius: 10px;">
+                    <div style="font-size: 0.9rem; color: var(--cream); margin-bottom: 0.3rem;">健康性</div>
+                    <div style="font-size: 1.8rem; font-weight: 900;">9.5点</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.2); padding: 1rem; border-radius: 10px;">
+                    <div style="font-size: 0.9rem; color: var(--cream); margin-bottom: 0.3rem;">手軽さ</div>
+                    <div style="font-size: 1.8rem; font-weight: 900;">9.8点</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.2); padding: 1rem; border-radius: 10px;">
+                    <div style="font-size: 0.9rem; color: var(--cream); margin-bottom: 0.3rem;">味</div>
+                    <div style="font-size: 1.8rem; font-weight: 900;">8.5点</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.2); padding: 1rem; border-radius: 10px;">
+                    <div style="font-size: 0.9rem; color: var(--cream); margin-bottom: 0.3rem;">コスパ</div>
+                    <div style="font-size: 1.8rem; font-weight: 900;">9.7点</div>
+                </div>
+                <div style="background: rgba(255, 255, 255, 0.2); padding: 1rem; border-radius: 10px;">
+                    <div style="font-size: 0.9rem; color: var(--cream); margin-bottom: 0.3rem;">続けやすさ</div>
+                    <div style="font-size: 1.8rem; font-weight: 900;">9.5点</div>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; font-size: 1.2rem; color: var(--cream);">
+                総合的に見て、わかめスープは朝食スープの最適解です
+            </p>
+        </div>
+        
+        <footer>
+            <p style="font-size: 1.5rem; margin-bottom: 1rem;">明日の朝食から、わかめスープを始めてみませんか？ 🥬</p>
+            <p style="font-size: 1.2rem; color: var(--ocean-light);">最後まで読んでいただき、ありがとうございました 🌊</p>
+        </footer>
+    </div>
+</body>
+</html>
